@@ -5,9 +5,9 @@ from network import voltage_stability_margin, network_defination
 
 
 # Define parameters
-population_size = 50
-num_generations = 7
-mutation_rate = 0.1
+POPULATION_SIZE = 50
+NUM_GENERATIONS = 3
+MUTATION_RATE = 0.1
 
 # Define fitness function (objective function)
 def fitness_function(chromosome):
@@ -18,7 +18,7 @@ def fitness_function(chromosome):
 # Generate initial population
 def initialize_population():
     population = []
-    for _ in range(population_size):
+    for _ in range(POPULATION_SIZE):
         chromosome = np.random.rand() * 100  
         population.append(chromosome)
     return population
@@ -50,7 +50,7 @@ def crossover(parent1, parent2, alpha=0.5):
 # Perform mutation
 def mutate(chromosome):
     # Random mutation of a gene
-    if np.random.rand() < mutation_rate:
+    if np.random.rand() < MUTATION_RATE:
         chromosome = np.random.rand() * 100
     return chromosome
 
@@ -83,7 +83,7 @@ def genetic_algorithm():
     
     
     # Evolution loop
-    for generation in range(num_generations):
+    for generation in range(NUM_GENERATIONS):
         # Evaluate fitness of each individual in the population
         fitness_values = [fitness_function(chromosome) for chromosome in population]
         
